@@ -1,6 +1,6 @@
 package com.example.classesemetodosnapratica;
 
-public class Casa {
+class Casa {
     // Propriedades
     String cor;
 
