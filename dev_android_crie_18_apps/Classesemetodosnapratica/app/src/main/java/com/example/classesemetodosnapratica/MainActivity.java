@@ -11,13 +11,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Animal animal = new Animal();
+        animal.correr();
+
+        /*
         Funcionario funcionario = new Funcionario();
         funcionario.nome = "Rafael";
         funcionario.salario = 10000;
 
         double salarioRecuperado = funcionario.recuperarSalario(150, 20);
         System.out.println("O salário do Rafael é "+ salarioRecuperado);
-
+        */
         //int numero = 10;
 
         /*Casa minhaCasa = new Casa();
