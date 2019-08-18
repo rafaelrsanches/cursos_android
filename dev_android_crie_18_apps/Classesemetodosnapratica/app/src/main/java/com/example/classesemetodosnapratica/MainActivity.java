@@ -11,8 +11,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        Passaro passaro = new Passaro();
+        passaro.correr();
+
+        Cao cao = new Cao();
+        cao.correr();
+
+        //cao.setTamanho(2);
+        //System.out.println(cao.getTamanho());
+
+        /*
         Animal animal = new Animal();
         animal.correr();
+        */
 
         /*
         Funcionario funcionario = new Funcionario();
