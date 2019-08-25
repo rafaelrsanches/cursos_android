@@ -1,9 +1,9 @@
-package com.example.classesemetodosnapratica;
+package com.example.classesemetodosnapratica.classes;
 
-class Animal {
-    int tamanho;
-    String cor;
-    double peso;
+public class Animal {
+    protected int tamanho;
+    protected String cor;
+    protected double peso;
 
     //Getter e Setter
 

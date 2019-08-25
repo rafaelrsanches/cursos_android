@@ -1,4 +1,4 @@
-package com.example.classesemetodosnapratica;
+package com.example.classesemetodosnapratica.classes;
 
 class Passaro extends Animal {
     void voar(){

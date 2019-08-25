@@ -1,8 +1,12 @@
 package com.example.classesemetodosnapratica;
 
 public class Conta {
-    int numeroConta;
-    double saldo = 100;
+    protected int numeroConta;
+    private double saldo = 100;
+
+    public double recuperarSaldo(){
+        return this.saldo;
+    }
 
     public void depositar(double valorDeposito){
         this.saldo = this.saldo + valorDeposito;

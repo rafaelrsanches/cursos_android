@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.classesemetodosnapratica.classes.Animal;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -12,16 +14,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
+
+
+        /*
         Conta conta = new Conta();
         conta.depositar(100);
         conta.sacar(50);
 
-        System.out.println(conta.saldo);
+        System.out.println(conta.recuperarSaldo());
+        */
 
-
-
-
-        /*Passaro passaro = new Passaro();
+        /*
+        Passaro passaro = new Passaro();
         passaro.correr();
 
         Cao cao = new Cao();
