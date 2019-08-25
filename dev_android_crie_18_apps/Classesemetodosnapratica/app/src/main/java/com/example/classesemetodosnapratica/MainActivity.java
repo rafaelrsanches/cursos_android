@@ -12,11 +12,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Passaro passaro = new Passaro();
+        Conta conta = new Conta();
+        conta.depositar(100);
+        conta.sacar(50);
+
+        System.out.println(conta.saldo);
+
+
+
+
+        /*Passaro passaro = new Passaro();
         passaro.correr();
 
         Cao cao = new Cao();
-        cao.correr();
+        cao.correr();*/
 
         //cao.setTamanho(2);
         //System.out.println(cao.getTamanho());
