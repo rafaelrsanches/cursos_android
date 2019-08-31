@@ -14,9 +14,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        ContaBancaria conta = new ContaBancaria();
+
+
+        /*
         Pessoa pessoa = new Pessoa();
         pessoa.exibirDados("Maria", 52);
-
+        */
 
         /*
         Conta conta = new Conta();
