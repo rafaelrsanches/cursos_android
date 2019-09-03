@@ -14,8 +14,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        ContaBancaria conta = new ContaBancaria();
+        Obama obama = new Obama();
+        obama.direitosDeveres();
 
+
+        /*
+        ContaBancaria conta = new ContaBancaria();
+        */
 
         /*
         Pessoa pessoa = new Pessoa();
