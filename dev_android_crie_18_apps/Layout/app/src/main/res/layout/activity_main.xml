@@ -16,11 +16,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_salvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jogar"
+        android:background="@color/cor_botao_salvar"
+        android:text="@string/botao_salvar"
         tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="111dp" />
+        tools:layout_editor_absoluteY="112dp" />
+
+    <Button
+        android:id="@+id/button_salvar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/cor_botao_salvar"
+        android:text="@string/botao_salvar"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="411dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
