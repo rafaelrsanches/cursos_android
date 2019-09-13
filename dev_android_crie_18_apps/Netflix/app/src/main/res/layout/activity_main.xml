@@ -8,12 +8,11 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:fillViewport="true"
-    >
+    android:background="@color/background_app">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_app">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView"
