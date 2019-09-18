@@ -19,6 +19,30 @@
             android:hint="Nome do produto" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cores" />
+
+    <CheckBox
+        android:id="@+id/cbBranco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Branco" />
+
+    <CheckBox
+        android:id="@+id/cbVerde"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Verde" />
+
+    <CheckBox
+        android:id="@+id/cbVermelho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vermelho" />
+
     <Button
         android:id="@+id/btnEnviar"
         android:layout_width="match_parent"
