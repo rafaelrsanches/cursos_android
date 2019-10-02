@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="6dp">
+    android:layout_margin="6dp"
+    app:cardElevation="6dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,10 +15,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textNome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Rafael R. Sanches"
@@ -25,22 +27,24 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textDataHora"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Agora mesmo" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imagePostagem"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_marginTop="10dp"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/imagem1" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textPostagem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="#TBT Viagem Legal!" />
         </LinearLayout>
 
@@ -50,17 +54,21 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonCurtir"
+                style="?attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_curtir_cinza_24dp"
                 android:text="Curtir" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/buttonComentar"
+                style="?attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_comentar_cinza_24dp"
                 android:text="Comentar" />
         </LinearLayout>
     </LinearLayout>
