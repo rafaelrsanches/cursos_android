@@ -38,7 +38,7 @@
                 android:layout_height="200dp"
                 android:layout_marginTop="10dp"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/imagem1" />
+                app:srcCompat="@mipmap/imagem1" />
 
             <TextView
                 android:id="@+id/textPostagem"

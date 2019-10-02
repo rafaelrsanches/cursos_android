@@ -46,7 +46,7 @@ public class PostagemAdapter extends RecyclerView.Adapter<PostagemAdapter.MyView
 
     @Override
     public int getItemCount() {
-        return 6;
+        return postagens.size();
     }
 
 
