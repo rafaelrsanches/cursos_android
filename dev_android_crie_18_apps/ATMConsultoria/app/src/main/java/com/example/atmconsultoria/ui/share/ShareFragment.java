@@ -1,5 +1,6 @@
 package com.example.atmconsultoria.ui.share;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.atmconsultoria.MainActivity;
 import com.example.atmconsultoria.R;
 
 public class ShareFragment extends Fragment {
@@ -27,9 +29,21 @@ public class ShareFragment extends Fragment {
         shareViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+               enviarEmail();
             }
         });
         return root;
+    }
+
+    private void enviarEmail() {
+        Intent email = new Intent(Intent.ACTION_SEND);
+        email.putExtra(Intent.EXTRA_EMAIL, new String[]{"atmconsultoria@android.com"});
+        email.putExtra(Intent.EXTRA_SUBJECT, "Contato pelo App");
+        email.putExtra(Intent.EXTRA_TEXT, "");
+
+        // Configurando apps para e-mail
+        email.setType("message/rfc822");
+
+        startActivity(Intent.createChooser(email, "Escolha o App de e-mail:"));
     }
 }
