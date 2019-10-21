@@ -1,16 +1,16 @@
-package com.example.atmconsultoria.ui.share;
+package com.example.atmconsultoria.ui.sobre;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ShareViewModel extends ViewModel {
+public class SobreViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ShareViewModel() {
+    public SobreViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is share fragment");
+        mText.setValue("This is sobre fragment");
     }
 
     public LiveData<String> getText() {

@@ -1,10 +1,9 @@
-package com.example.atmconsultoria.ui.slideshow;
+package com.example.atmconsultoria.ui.clientes;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -14,17 +13,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.atmconsultoria.R;
 
-public class SlideshowFragment extends Fragment {
+public class ClientesFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private ClientesViewModel clientesViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        clientesViewModel =
+                ViewModelProviders.of(this).get(ClientesViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_clientes, container, false);
         //final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(this, new Observer<String>() {
+        clientesViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 //textView.setText(s);

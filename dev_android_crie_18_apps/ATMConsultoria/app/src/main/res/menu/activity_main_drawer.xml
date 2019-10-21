@@ -5,15 +5,15 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_principal"
             android:icon="@drawable/ic_inbox_cinza_24dp"
             android:title="Principal" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_servicos"
             android:icon="@drawable/ic_servicos_cinza_24dp"
             android:title="Serviços" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_clientes"
             android:icon="@drawable/ic_clientes_cinza_24dp"
             android:title="Clientes" />
     </group>
@@ -21,11 +21,11 @@
     <item android:title="Comunicação">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_contato"
                 android:icon="@drawable/ic_contato_cinza_24dp"
                 android:title="Contato" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_sobre"
                 android:icon="@drawable/ic_sobre_cinza_24dp"
                 android:title="Sobre" />
         </menu>

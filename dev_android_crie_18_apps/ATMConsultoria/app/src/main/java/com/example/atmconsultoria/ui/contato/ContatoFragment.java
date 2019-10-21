@@ -1,4 +1,4 @@
-package com.example.atmconsultoria.ui.share;
+package com.example.atmconsultoria.ui.contato;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,20 +13,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.atmconsultoria.MainActivity;
 import com.example.atmconsultoria.R;
 
-public class ShareFragment extends Fragment {
+public class ContatoFragment extends Fragment {
 
-    private ShareViewModel shareViewModel;
+    private ContatoViewModel contatoViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        shareViewModel =
-                ViewModelProviders.of(this).get(ShareViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_share, container, false);
+        contatoViewModel =
+                ViewModelProviders.of(this).get(ContatoViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_contato, container, false);
         final TextView textView = root.findViewById(R.id.text_share);
-        shareViewModel.getText().observe(this, new Observer<String>() {
+        contatoViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                enviarEmail();
