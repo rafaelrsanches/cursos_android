@@ -8,31 +8,30 @@
     <fragment
         android:id="@+id/nav_principal"
         android:name="com.example.atmconsultoria.ui.principal.PrincipalFragment"
-        android:label="@string/menu_home"
+        android:label="@string/menu_principal"
         tools:layout="@layout/fragment_principal" />
 
     <fragment
         android:id="@+id/nav_servicos"
         android:name="com.example.atmconsultoria.ui.servicos.ServicosFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_servicos"
         tools:layout="@layout/fragment_servicos" />
 
     <fragment
         android:id="@+id/nav_clientes"
         android:name="com.example.atmconsultoria.ui.clientes.ClientesFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_clientes"
         tools:layout="@layout/fragment_clientes" />
 
 
     <fragment
         android:id="@+id/nav_contato"
         android:name="com.example.atmconsultoria.ui.contato.ContatoFragment"
-        android:label="@string/menu_share"
+        android:label="@string/menu_contato"
         tools:layout="@layout/fragment_contato" />
 
     <fragment
         android:id="@+id/nav_sobre"
         android:name="com.example.atmconsultoria.ui.sobre.SobreFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_sobre" />
+        android:label="@string/menu_sobre" />
 </navigation>
