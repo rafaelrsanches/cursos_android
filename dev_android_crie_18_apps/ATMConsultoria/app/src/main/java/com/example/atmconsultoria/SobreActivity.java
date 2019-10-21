@@ -1,9 +1,11 @@
 package com.example.atmconsultoria;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import mehdi.sakout.aboutpage.AboutPage;
 
@@ -33,5 +35,11 @@ public class SobreActivity extends AppCompatActivity {
                 .create();
 
         setContentView(sobre);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
