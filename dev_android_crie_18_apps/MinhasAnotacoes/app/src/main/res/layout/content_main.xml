@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_main">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editAnotacao"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/cor_fundo_caixa_texto"
