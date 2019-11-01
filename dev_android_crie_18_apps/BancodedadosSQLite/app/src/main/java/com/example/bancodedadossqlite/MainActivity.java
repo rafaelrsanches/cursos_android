@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
             bancoDados.execSQL("CREATE TABLE IF NOT EXISTS pessoas (nome VARCHAR, idade INT(3))");
 
             // Inserir dados
-            //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Mariana', 18)");
-            //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Pedro', 50)");
+            //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Maria', 35)");
+            //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Mario', 55)");
 
             // Recuperar pessoas
             /*String consulta =
@@ -37,10 +37,25 @@ public class MainActivity extends AppCompatActivity {
                     "FROM pessoas " +
                     "WHERE idade >= 30 OR idade = 18";*/
 
+            /*String consulta =
+                    "SELECT nome, idade " +
+                    "FROM pessoas " +
+                    "WHERE nome IN('Rafael', 'KotlinDev')";*/
+
+            /*String consulta =
+                    "SELECT nome, idade " +
+                    "FROM pessoas " +
+                    "WHERE idade BETWEEN 18 AND 23";*/
+            /*String filtro = "mar";
             String consulta =
                     "SELECT nome, idade " +
                     "FROM pessoas " +
-                    "WHERE nome IN('Rafael', 'KotlinDev')";
+                    "WHERE nome LIKE '%" + filtro + "%'";*/
+
+            String consulta =
+                    "SELECT nome, idade " +
+                            "FROM pessoas " +
+                            "WHERE 1=1 ORDER BY idade ASC LIMIT 3";
             Cursor cursor = bancoDados.rawQuery(consulta, null);
 
             // Indices da tabela
