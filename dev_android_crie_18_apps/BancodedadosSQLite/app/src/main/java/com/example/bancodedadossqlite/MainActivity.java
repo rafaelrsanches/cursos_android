@@ -20,11 +20,17 @@ public class MainActivity extends AppCompatActivity {
             SQLiteDatabase bancoDados = openOrCreateDatabase("app", MODE_PRIVATE, null);
 
             // Criar tabela
-            bancoDados.execSQL("CREATE TABLE IF NOT EXISTS pessoas (nome VARCHAR, idade INT(3))");
+            bancoDados.execSQL("CREATE TABLE IF NOT EXISTS pessoas (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, idade INT(3))");
+            //bancoDados.execSQL("DROP TABLE pessoas");
 
             // Inserir dados
             //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Maria', 35)");
             //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Mario', 55)");
+
+
+            // Atualizando e removendo registros
+            //bancoDados.execSQL("UPDATE pessoas SET idade = 19, nome = 'Mariana Silva' WHERE nome = 'Mariana'");
+
 
             // Recuperar pessoas
             /*String consulta =
@@ -53,21 +59,23 @@ public class MainActivity extends AppCompatActivity {
                     "WHERE nome LIKE '%" + filtro + "%'";*/
 
             String consulta =
-                    "SELECT nome, idade " +
+                    "SELECT id, nome, idade " +
                             "FROM pessoas " +
-                            "WHERE 1=1 ORDER BY idade ASC LIMIT 3";
+                            "WHERE 1=1 ORDER BY idade";
             Cursor cursor = bancoDados.rawQuery(consulta, null);
 
             // Indices da tabela
+            int indiceId = cursor.getColumnIndex("id");
             int indiceNome = cursor.getColumnIndex("nome");
             int indiceIdade = cursor.getColumnIndex("idade");
 
             cursor.moveToFirst();
             while (cursor != null){
+                String id = cursor.getString(indiceId);
                 String nome = cursor.getString(indiceNome);
                 String idade = cursor.getString(indiceIdade);
 
-                Log.i("Resultado - Nome ", nome + " - Idade: " + idade);
+                Log.i("Resultado - Id ", id + " - Nome: " + nome + " - Idade: " + idade);
                 cursor.moveToNext();
             }
         }catch (Exception e) {
