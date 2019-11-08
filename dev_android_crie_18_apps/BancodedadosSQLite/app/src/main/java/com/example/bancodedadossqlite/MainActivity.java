@@ -24,12 +24,13 @@ public class MainActivity extends AppCompatActivity {
             //bancoDados.execSQL("DROP TABLE pessoas");
 
             // Inserir dados
-            //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Maria', 35)");
-            //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Mario', 55)");
+            //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Mariana', 18)");
+            //bancoDados.execSQL("INSERT INTO pessoas(nome, idade) VALUES ('Pedro', 27)");
 
 
             // Atualizando e removendo registros
-            //bancoDados.execSQL("UPDATE pessoas SET idade = 19, nome = 'Mariana Silva' WHERE nome = 'Mariana'");
+            //bancoDados.execSQL("UPDATE pessoas SET idade = 19, nome = 'Mariana Silva' WHERE id = 3");
+            //bancoDados.execSQL("DELETE FROM pessoas");
 
 
             // Recuperar pessoas
@@ -59,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
                     "WHERE nome LIKE '%" + filtro + "%'";*/
 
             String consulta =
-                    "SELECT id, nome, idade " +
-                            "FROM pessoas " +
-                            "WHERE 1=1 ORDER BY idade";
+                    "SELECT *" +
+                    "FROM pessoas " +
+                    "WHERE 1=1";
             Cursor cursor = bancoDados.rawQuery(consulta, null);
 
             // Indices da tabela
