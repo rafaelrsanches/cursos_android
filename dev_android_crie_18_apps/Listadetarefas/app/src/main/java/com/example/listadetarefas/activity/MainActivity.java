@@ -70,8 +70,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), LinearLayout.VERTICAL));
-        //recyclerView.setAdapter();
+        recyclerView.setAdapter(tarefaAdapter);
 
+    }
+
+    @Override
+    protected void onStart() {
+        carregarListaTarefas();
+
+        super.onStart();
     }
 
     @Override
