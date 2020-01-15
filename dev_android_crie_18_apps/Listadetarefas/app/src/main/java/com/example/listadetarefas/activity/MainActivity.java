@@ -1,10 +1,12 @@
 package com.example.listadetarefas.activity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.listadetarefas.R;
 import com.example.listadetarefas.adapter.TarefaAdapter;
+import com.example.listadetarefas.helper.DBHelper;
 import com.example.listadetarefas.helper.RecyclerItemClickListener;
 import com.example.listadetarefas.model.Tarefa;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Configurar RecyclerView
         recyclerView = findViewById(R.id.recyclerView);
+
 
         // Adicionar evento de clique
         recyclerView.addOnItemTouchListener(

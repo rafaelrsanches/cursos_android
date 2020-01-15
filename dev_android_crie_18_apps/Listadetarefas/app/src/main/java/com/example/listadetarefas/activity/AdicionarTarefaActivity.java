@@ -31,9 +31,8 @@ public class AdicionarTarefaActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.itemSalvar:
-                Toast.makeText(AdicionarTarefaActivity.this,
-                        "Botão adicionar tarefa pressionado",
-                        Toast.LENGTH_SHORT).show();
+                // Executa ação para o item salvar
+
                 break;
         }
 
