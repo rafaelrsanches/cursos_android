@@ -41,9 +41,13 @@ public class AdicionarTarefaActivity extends AppCompatActivity {
                 // Executa ação para o item salvar
                 TarefaDAO tarefaDAO = new TarefaDAO(getApplicationContext());
 
-                Tarefa tarefa = new Tarefa();
-                tarefa.setNomeTarefa("Ir ao mercado");
-                tarefaDAO.salvar(tarefa);
+                String nomeTarefa = editTarefa.getText().toString();
+                if(!nomeTarefa.isEmpty()){
+                    Tarefa tarefa = new Tarefa();
+                    tarefa.setNomeTarefa(nomeTarefa);
+                    tarefaDAO.salvar(tarefa);
+                    finish();
+                }
 
                 break;
         }
