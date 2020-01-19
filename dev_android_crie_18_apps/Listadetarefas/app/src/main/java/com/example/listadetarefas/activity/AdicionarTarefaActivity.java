@@ -16,6 +16,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class AdicionarTarefaActivity extends AppCompatActivity {
 
     private TextInputEditText editTarefa;
+    private Tarefa tarefaAtual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,15 @@ public class AdicionarTarefaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_adicionar_tarefa);
 
         editTarefa = findViewById(R.id.editTarefa);
+
+        // Recuperar tarefa, caso seja edição
+        tarefaAtual = (Tarefa) getIntent().getSerializableExtra("tarefaSelecionada");
+
+        // Configurar tarefa na caixa de texto
+        if (tarefaAtual != null){
+            editTarefa.setText(tarefaAtual.getNomeTarefa());
+        }
+
     }
 
     @Override
@@ -39,14 +49,53 @@ public class AdicionarTarefaActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.itemSalvar:
                 // Executa ação para o item salvar
-                TarefaDAO tarefaDAO = new TarefaDAO(getApplicationContext());
 
+                TarefaDAO tarefaDAO = new TarefaDAO(getApplicationContext());
                 String nomeTarefa = editTarefa.getText().toString();
-                if(!nomeTarefa.isEmpty()){
-                    Tarefa tarefa = new Tarefa();
-                    tarefa.setNomeTarefa(nomeTarefa);
-                    tarefaDAO.salvar(tarefa);
-                    finish();
+
+                if (tarefaAtual != null){ // Edição
+
+                    if (!nomeTarefa.isEmpty()){
+
+                        Tarefa tarefa = new Tarefa();
+                        tarefa.setNomeTarefa(nomeTarefa);
+                        tarefa.setId(tarefaAtual.getId());
+
+                        // Atualizar no banco de dados
+                        if (tarefaDAO.atualizar(tarefa)){
+
+                            finish();
+                            Toast.makeText(getApplicationContext(),
+                                    "Sucesso ao editar tarefa!",
+                                    Toast.LENGTH_SHORT).show();
+
+                        } else {
+
+                            Toast.makeText(getApplicationContext(),
+                                    "Erro ao editar tarefa!",
+                                    Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+
+                } else { // Salvar
+
+                    if(!nomeTarefa.isEmpty()){
+                        Tarefa tarefa = new Tarefa();
+                        tarefa.setNomeTarefa(nomeTarefa);
+
+                        if (tarefaDAO.salvar(tarefa)){
+                            finish();
+                            Toast.makeText(getApplicationContext(),
+                                    "Sucesso ao salvar tarefa!",
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(),
+                                    "Erro ao salvar tarefa!",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 }
 
                 break;
