@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,13 +30,35 @@ public class MainActivity extends AppCompatActivity {
 
         DatabaseReference usuarios = referencia.child("usuarios");
 
+        //DatabaseReference usuarioPesquisa = usuarios.child("-LzY47rumaIXJ2CQXQND");
+
+        //Query usuarioPesquisa = usuarios.orderByChild("nome").equalTo("Rafael");
+        //Query usuarioPesquisa = usuarios.orderByKey().limitToFirst(3);
+        Query usuarioPesquisa = usuarios.orderByKey().limitToLast(2);
+
+        usuarioPesquisa.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //Usuario dadosUsuario = dataSnapshot.getValue(Usuario.class);
+                //Log.i("Dados usuario: ", "nome: " + dadosUsuario.getNome() + " idade: " + dadosUsuario.getIdade());
+                Log.i("Dados usuario: ", dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        /*
         Usuario usuario = new Usuario();
-        usuario.setNome("Rafael");
-        usuario.setSobrenome("R. Sanches");
-        usuario.setIdade(23);
+        usuario.setNome("Rodrigo");
+        usuario.setSobrenome("Matos");
+        usuario.setIdade(35);
 
         usuarios.push().setValue(usuario);
-
+        */
 
         // Logar usuário
         /*
