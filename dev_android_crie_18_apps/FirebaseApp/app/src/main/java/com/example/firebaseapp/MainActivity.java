@@ -27,6 +27,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        DatabaseReference usuarios = referencia.child("usuarios");
+
+        Usuario usuario = new Usuario();
+        usuario.setNome("Rafael");
+        usuario.setSobrenome("R. Sanches");
+        usuario.setIdade(23);
+
+        usuarios.push().setValue(usuario);
+
+
         // Logar usuário
         /*
         auth.signInWithEmailAndPassword(
@@ -50,13 +60,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Verifica usuário logado
-        
+        /*
         if (auth.getCurrentUser() != null){
             Log.i("CurrentUser", "Usuário logado");
         } else {
             Log.i("CurrentUser", "Usuário não logado");
         }
-
+        */
 
         // Cadastro do usuário
         /*
