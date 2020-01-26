@@ -27,11 +27,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        // Logar usuário
+        /*
+        auth.signInWithEmailAndPassword(
+                "rafaelrsanches@devkotlin.com", "devkotlin123")
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Log.i("signIn", "Sucesso ao logar usuário");
+                        }else{
+                            Log.i("signIn", "Erro ao logar usuário");
+                        }
+                    }
+                });
+
+         */
+
+
+        // Deslogar usuário
+        //auth.signOut();
+
+
         // Verifica usuário logado
+        
         if (auth.getCurrentUser() != null){
-            Log.i("SiginUser", "Sucesso ao logar usuário");
+            Log.i("CurrentUser", "Usuário logado");
         } else {
-            Log.i("SiginUser", "Erro ao logar usuário");
+            Log.i("CurrentUser", "Usuário não logado");
         }
 
 
