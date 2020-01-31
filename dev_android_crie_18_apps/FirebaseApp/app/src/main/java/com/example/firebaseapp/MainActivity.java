@@ -3,8 +3,12 @@ package com.example.firebaseapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -17,10 +21,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.ByteArrayOutputStream;
+
 public class MainActivity extends AppCompatActivity {
 
-    private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
-    private FirebaseAuth auth = FirebaseAuth.getInstance();
+    //private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
+    //private FirebaseAuth auth = FirebaseAuth.getInstance();
+    private ImageView imageFoto;
+    private Button buttonUpload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +36,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        DatabaseReference usuarios = referencia.child("usuarios");
+        imageFoto = findViewById(R.id.imageFoto);
+        buttonUpload = findViewById(R.id.buttonUpload);
+
+        buttonUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                // Configura para imagem ser salva em memória
+                imageFoto.setDrawingCacheEnabled(true);
+                imageFoto.buildDrawingCache();
+
+                // Recupera bitmap da imagem (imagem a ser carregada)
+                Bitmap bitmap = imageFoto.getDrawingCache();
+
+                // Comprime bitmap para um formato png/jpeg
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 75, baos);
+
+                // Converte o baos para pixels brutos em uma matriz de bytes (dados da imagem)
+                byte[] dadosImagem = baos.toByteArray();
+                
+            }
+        });
+
+
+        //DatabaseReference usuarios = referencia.child("usuarios");
 
         //DatabaseReference usuarioPesquisa = usuarios.child("-LzY47rumaIXJ2CQXQND");
 
@@ -48,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         //                                .endAt(22);
 
         // Filtrar palavras
-        Query usuarioPesquisa = usuarios.orderByChild("nome")
+        /*Query usuarioPesquisa = usuarios.orderByChild("nome")
                                         .startAt("R")
                                         .endAt("R" + "\uf8ff");
 
@@ -65,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        */
 
         /*
         Usuario usuario = new Usuario();
