@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -68,12 +70,37 @@ public class MainActivity extends AppCompatActivity {
                 // Define nós para o storage
                 StorageReference storageReference = FirebaseStorage.getInstance().getReference();
                 StorageReference imagens = storageReference.child("imagens");
+                StorageReference imagemRef = imagens.child("celular.jpeg");
+
+                Glide.with(MainActivity.this)
+                        .using(new FirebaseImageLoader())
+                        .load(imagemRef)
+                        .into(imageFoto);
+
+                /*
+                imagemRef.delete().addOnFailureListener(MainActivity.this, new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(MainActivity.this,
+                                "Falha ao deletar imagem: " + e.getMessage(),
+                                Toast.LENGTH_LONG).show();
+                    }
+                }).addOnSuccessListener(MainActivity.this, new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(MainActivity.this,
+                                "Sucesso ao deletar imagem",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+                */
 
                 // Nome da imagem
-                String nomeArquivo = UUID.randomUUID().toString();
-                StorageReference imagemRef = imagens.child(nomeArquivo + ".jpeg");
+                //String nomeArquivo = UUID.randomUUID().toString();
+                //StorageReference imagemRef = imagens.child(nomeArquivo + ".jpeg");
 
                 // Retorna o objeto que irá controlar o upload
+                /*
                 UploadTask uploadTask = imagemRef.putBytes(dadosImagem);
 
                 uploadTask.addOnFailureListener(MainActivity.this, new OnFailureListener() {
@@ -94,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
                     }
                 });
+                 */
 
             }
         });
