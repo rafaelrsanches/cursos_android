@@ -17,6 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding{
+        enabled = true
+    }
+
 }
 
 dependencies {
@@ -29,6 +34,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.0.0'
     implementation 'com.google.firebase:firebase-database:18.0.0'
     implementation 'com.google.firebase:firebase-auth:18.0.0'
+    implementation 'com.heinrichreimersoftware:material-intro:2.0.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
