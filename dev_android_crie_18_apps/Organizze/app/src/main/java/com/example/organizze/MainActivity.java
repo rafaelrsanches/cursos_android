@@ -15,52 +15,28 @@ public class MainActivity extends IntroActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-
         setButtonBackVisible(false);
         setButtonNextVisible(false);
 
         addSlide(new FragmentSlide.Builder()
                 .background(android.R.color.white)
                 .fragment(R.layout.intro_1)
-                .build()
-        );
+                .build());
 
         addSlide(new FragmentSlide.Builder()
                 .background(android.R.color.white)
                 .fragment(R.layout.intro_2)
-                .build()
-        );
+                .build());
 
-        /*
-        setButtonBackVisible(false);
-        setButtonNextVisible(false);
+        addSlide(new FragmentSlide.Builder()
+                .background(android.R.color.white)
+                .fragment(R.layout.intro_3)
+                .build());
 
-        addSlide(new SimpleSlide.Builder()
-                .title("Titulo")
-                .description("Descrição")
-                .image(R.mipmap.um)
-                .background(android.R.color.holo_orange_light)
-                .build()
-        );
-
-        addSlide(new SimpleSlide.Builder()
-                .title("Titulo2")
-                .description("Descrição2")
-                .image(R.mipmap.dois)
-                .background(android.R.color.holo_orange_light)
-                .build()
-        );
-
-        addSlide(new SimpleSlide.Builder()
-                .title("Titulo3")
-                .description("Descrição3")
-                .image(R.mipmap.tres)
-                .background(android.R.color.holo_orange_light)
-                .build()
-        );
-         */
-
-
+        addSlide(new FragmentSlide.Builder()
+                .background(android.R.color.white)
+                .fragment(R.layout.intro_4)
+                .build());
 
     }
 }

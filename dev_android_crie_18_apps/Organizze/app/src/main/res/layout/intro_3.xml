@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@mipmap/dois" />
+        app:srcCompat="@mipmap/tres" />
 
     <TextView
         android:id="@+id/textView"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="Saiba para onde está indo seu dinheiro"
+        android:text="Nunca mais esqueça de\n pagar uma conta"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Categorizando seus lançamentos e vendo o\n destino de cada centavo"
+        android:text="Receba alertas quando quiser"
         android:textColor="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
