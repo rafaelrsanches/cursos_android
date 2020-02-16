@@ -50,11 +50,11 @@ public class MainActivity extends IntroActivity {
     }
 
     public void btEntran(View view){
-        //startActivity(new Intent(this, ));
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
     public void btCadastrar(View view){
-
+        startActivity(new Intent(this, CadastroActivity.class));
     }
 
 }
