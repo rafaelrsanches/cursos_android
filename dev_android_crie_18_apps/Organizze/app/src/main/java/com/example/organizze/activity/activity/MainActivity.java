@@ -1,6 +1,4 @@
-package com.example.organizze.activity;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.organizze.activity.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +7,6 @@ import android.view.View;
 import com.example.organizze.R;
 import com.heinrichreimersoftware.materialintro.app.IntroActivity;
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
-import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
 
 public class MainActivity extends IntroActivity {
 
