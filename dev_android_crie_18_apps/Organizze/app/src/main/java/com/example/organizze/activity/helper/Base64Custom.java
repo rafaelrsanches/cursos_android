@@ -1,4 +1,4 @@
-package helper;
+package com.example.organizze.activity.helper;
 
 import android.util.Base64;
 

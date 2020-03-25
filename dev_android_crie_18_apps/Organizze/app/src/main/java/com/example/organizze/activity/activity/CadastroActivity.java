@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
-import helper.Base64Custom;
+import com.example.organizze.activity.helper.Base64Custom;
 
 public class CadastroActivity extends AppCompatActivity {
 
