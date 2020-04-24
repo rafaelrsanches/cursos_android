@@ -106,5 +106,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_check_branco_24dp" />
+        app:srcCompat="@drawable/ic_check_branco_24dp"
+        android:onClick="salvarDespesa"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
