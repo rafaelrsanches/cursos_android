@@ -3,8 +3,10 @@ package com.example.organizze.activity.activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.organizze.activity.adapter.AdapterMovimentacao;
 import com.example.organizze.activity.config.ConfiguracaoFirebase;
 import com.example.organizze.activity.helper.Base64Custom;
+import com.example.organizze.activity.model.Movimentacao;
 import com.example.organizze.activity.model.Usuario;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -12,6 +14,8 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.Menu;
@@ -30,6 +34,8 @@ import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -42,6 +48,9 @@ public class PrincipalActivity extends AppCompatActivity {
     private Double despesaTotal = 0.0;
     private Double receitaTotal = 0.0;
     private Double resumoUsuario = 0.0;
+    private RecyclerView recyclerMovimentos;
+    private AdapterMovimentacao adapterMovimentacao;
+    private List<Movimentacao> movimentacoes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +64,17 @@ public class PrincipalActivity extends AppCompatActivity {
         textSaudacao = findViewById(R.id.textSaudacao);
         textSaldo = findViewById(R.id.textSaldo);
         materialCalendarView = findViewById(R.id.calendarView);
+        recyclerMovimentos = findViewById(R.id.recyclerMovimentos);
+
+        /*    CONFIGURAR RECYCLER VIEW     */
+        // Configurar Adapter
+        adapterMovimentacao = new AdapterMovimentacao(movimentacoes, this);
+
+        // Configurar RecyclerMovimentos
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerMovimentos.setLayoutManager(layoutManager);
+        recyclerMovimentos.setHasFixedSize(true);
+        recyclerMovimentos.setAdapter(adapterMovimentacao);
 
 
         configuraCalendarView();
