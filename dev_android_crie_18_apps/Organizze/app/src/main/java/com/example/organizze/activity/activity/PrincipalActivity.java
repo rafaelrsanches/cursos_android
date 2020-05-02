@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,6 +37,8 @@ public class PrincipalActivity extends AppCompatActivity {
     private TextView textSaudacao, textSaldo;
     private FirebaseAuth auth = ConfiguracaoFirebase.getFirebaseAuth();;
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
+    private DatabaseReference usuarioRef;
+    private ValueEventListener valueEventListenerUsuario;
     private Double despesaTotal = 0.0;
     private Double receitaTotal = 0.0;
     private Double resumoUsuario = 0.0;
@@ -55,17 +58,28 @@ public class PrincipalActivity extends AppCompatActivity {
 
 
         configuraCalendarView();
-        recuperarResumo();
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        recuperarResumo();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        usuarioRef.removeEventListener(valueEventListenerUsuario);
     }
 
     public void recuperarResumo(){
 
         String emailUsuario = auth.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
-        DatabaseReference usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
+        usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
 
-        usuarioRef.addValueEventListener(new ValueEventListener() {
+        valueEventListenerUsuario = usuarioRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -80,6 +94,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
                 textSaudacao.setText("Olá, " + usuario.getNome() + "!");
                 textSaldo.setText("R$ " + saldoGeralFormatado);
+
 
             }
 
