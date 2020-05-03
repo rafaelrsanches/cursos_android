@@ -1,5 +1,6 @@
 package com.example.organizze.activity.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -12,6 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -54,6 +56,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private RecyclerView recyclerMovimentos;
     private AdapterMovimentacao adapterMovimentacao;
     private List<Movimentacao> movimentacoes = new ArrayList<>();
+    private Movimentacao movimentacao;
     private String mesAnoSelecionado;
 
     @Override
@@ -118,11 +121,65 @@ public class PrincipalActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
+                excluirMovimentacao(viewHolder);
             }
         };
 
         new ItemTouchHelper(itemTouch).attachToRecyclerView(recyclerMovimentos);
+
+    }
+
+    public void excluirMovimentacao(final RecyclerView.ViewHolder viewHolder){
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setMessage("Excluir movimentação?");
+        alertDialog.setCancelable(false);
+
+        alertDialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                int position = viewHolder.getAdapterPosition();
+                movimentacao = movimentacoes.get(position);
+
+                String emailUsuario = auth.getCurrentUser().getEmail();
+                String idUsuario = Base64Custom.codificarBase64(emailUsuario);
+
+                movimentacaoRef = firebaseRef.child("movimentacao")
+                                             .child(idUsuario)
+                                             .child(mesAnoSelecionado);
+                movimentacaoRef.child(movimentacao.getKey()).removeValue();
+                adapterMovimentacao.notifyItemRemoved(position);
+
+                atualizarSaldo();
+
+            }
+        });
+
+        alertDialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                adapterMovimentacao.notifyDataSetChanged();
+            }
+        });
+
+        alertDialog.show();
+
+    }
+
+    public void atualizarSaldo(){
+
+        String emailUsuario = auth.getCurrentUser().getEmail();
+        String idUsuario = Base64Custom.codificarBase64(emailUsuario);
+        usuarioRef = firebaseRef.child("usuarios").child(idUsuario);
+
+        if (movimentacao.getTipo().equals("r")){
+            receitaTotal -= movimentacao.getValor();
+            usuarioRef.child("receitaTotal").setValue(receitaTotal);
+        }
+        if (movimentacao.getTipo().equals("d")){
+            despesaTotal -= movimentacao.getValor();
+            usuarioRef.child("despesaTotal").setValue(despesaTotal);
+        }
 
     }
 
@@ -145,6 +202,7 @@ public class PrincipalActivity extends AppCompatActivity {
                 for(DataSnapshot dados: dataSnapshot.getChildren()){
 
                     Movimentacao movimentacao = dados.getValue(Movimentacao.class);
+                    movimentacao.setKey(dados.getKey());
                     movimentacoes.add(movimentacao);
 
                 }
