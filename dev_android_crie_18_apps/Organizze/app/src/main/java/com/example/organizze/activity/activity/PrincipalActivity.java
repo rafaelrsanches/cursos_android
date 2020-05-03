@@ -43,7 +43,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private TextView textSaudacao, textSaldo;
     private FirebaseAuth auth = ConfiguracaoFirebase.getFirebaseAuth();;
     private DatabaseReference firebaseRef = ConfiguracaoFirebase.getFirebaseDatabase();
-    private DatabaseReference movimentacaoRef = ConfiguracaoFirebase.getFirebaseDatabase();
+    private DatabaseReference movimentacaoRef;
     private DatabaseReference usuarioRef;
     private ValueEventListener valueEventListenerUsuario;
     private ValueEventListener valueEventListenerMovimentacoes;
@@ -103,9 +103,9 @@ public class PrincipalActivity extends AppCompatActivity {
         String emailUsuario = auth.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
 
-        movimentacaoRef.child("movimentacao")
-                       .child(idUsuario)
-                       .child(mesAnoSelecionado);
+        movimentacaoRef = firebaseRef.child("movimentacao")
+                                     .child(idUsuario)
+                                     .child(mesAnoSelecionado);
 
 
         valueEventListenerMovimentacoes =  movimentacaoRef.addValueEventListener(new ValueEventListener() {
@@ -117,8 +117,11 @@ public class PrincipalActivity extends AppCompatActivity {
                 for(DataSnapshot dados: dataSnapshot.getChildren()){
 
                     Movimentacao movimentacao = dados.getValue(Movimentacao.class);
+                    movimentacoes.add(movimentacao);
 
                 }
+
+                adapterMovimentacao.notifyDataSetChanged();
 
             }
 
@@ -126,7 +129,7 @@ public class PrincipalActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        })
+        });
 
     }
 
@@ -194,12 +197,18 @@ public class PrincipalActivity extends AppCompatActivity {
         materialCalendarView.setTitleMonths(mesesPtBr);
 
         CalendarDay dataAtual = materialCalendarView.getCurrentDate();
-        mesAnoSelecionado = (dataAtual.getMonth() + 1) + "" + dataAtual.getYear();
+
+        String mesSelecionado = String.format("%02d", dataAtual.getMonth() + 1);
+        mesAnoSelecionado = (mesSelecionado) + "" + dataAtual.getYear();
 
         materialCalendarView.setOnMonthChangedListener(new OnMonthChangedListener() {
             @Override
             public void onMonthChanged(MaterialCalendarView widget, CalendarDay date) {
-                mesAnoSelecionado = (date.getMonth() + 1) + "" + date.getYear();
+                String mesSelecionado = String.format("%02d", date.getMonth() + 1);
+                mesAnoSelecionado = (mesSelecionado) + "" + date.getYear();
+
+                movimentacaoRef.removeEventListener(valueEventListenerMovimentacoes);
+                recuperarMovimentacoes();
             }
         });
     }
