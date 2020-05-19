@@ -16,7 +16,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
@@ -30,8 +29,8 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
 
         editNome = findViewById(R.id.editNome);
-        editEmail = findViewById(R.id.editEmail);
-        editSenha = findViewById(R.id.editSenha);
+        editEmail = findViewById(R.id.editCadastroEmail);
+        editSenha = findViewById(R.id.editCadastroSenha);
 
 
     }
