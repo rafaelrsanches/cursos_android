@@ -26,6 +26,8 @@ android {
 
 dependencies {
 
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
     implementation 'com.ogaclejapan.smarttablayout:library:1.7.0@aar'
 
     //Optional: see how to use the utility.
