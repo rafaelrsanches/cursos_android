@@ -3,8 +3,9 @@
     package="com.example.whatsapp">
 
     <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-    />
+        android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
