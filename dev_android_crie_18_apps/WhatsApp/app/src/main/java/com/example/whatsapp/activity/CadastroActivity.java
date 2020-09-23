@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.example.whatsapp.R;
 import com.example.whatsapp.config.ConfiguracaoFirebase;
 import com.example.whatsapp.helper.Base64Custom;
+import com.example.whatsapp.helper.UsuarioFirebase;
 import com.example.whatsapp.model.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,7 +30,7 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        editNome = findViewById(R.id.editNome);
+        editNome = findViewById(R.id.editPerfilNome);
         editEmail = findViewById(R.id.editCadastroEmail);
         editSenha = findViewById(R.id.editCadastroSenha);
 
@@ -51,6 +52,7 @@ public class CadastroActivity extends AppCompatActivity {
                             "Sucesso ao cadastrar usuário",
                             Toast.LENGTH_SHORT).show();
 
+                    UsuarioFirebase.atualizarNomeUsuario(usuario.getNome());
                     finish();
 
                     try{
