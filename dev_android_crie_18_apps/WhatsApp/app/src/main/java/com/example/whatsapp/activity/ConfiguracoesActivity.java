@@ -17,6 +17,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -48,6 +49,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
     private ImageButton imageButtonCamera, imageButtonGaleria;
     private CircleImageView circleImageViewPerfil;
     private EditText editPerfilNome;
+    private ImageView imageAtualizarNome;
     private static final int SELECAO_CAMERA  = 100;
     private static final int SELECAO_GALERIA = 200;
     private StorageReference storageReference;
@@ -62,6 +64,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
         imageButtonGaleria = findViewById(R.id.imageButtonGaleria);
         circleImageViewPerfil = findViewById(R.id.circleImageViewFotoPerfil);
         editPerfilNome = findViewById(R.id.editPerfilNome);
+        imageAtualizarNome = findViewById(R.id.imageAtualizarNome);
 
 
         // Configurações iniciais
@@ -116,6 +119,24 @@ public class ConfiguracoesActivity extends AppCompatActivity {
                 if (intent.resolveActivity(getPackageManager()) != null){
 
                     startActivityForResult(intent, SELECAO_GALERIA);
+
+                }
+
+            }
+        });
+
+
+        imageAtualizarNome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String nome = editPerfilNome.getText().toString();
+                boolean retorno = UsuarioFirebase.atualizarNomeUsuario(nome);
+                if (retorno){
+
+                    Toast.makeText(ConfiguracoesActivity.this,
+                            "Nome alterado com sucesso",
+                            Toast.LENGTH_SHORT).show();
 
                 }
 
