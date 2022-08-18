@@ -1,6 +1,10 @@
 fun main() {
-    var nome: String = "Tony"
-    nome = "Stark"
+    val nome: String = "Tony"
+    val sobrenome: String = "Stark"
 
-    val pseudo: String = "Homem de Ferro"
+    println("Olá, $nome $sobrenome")
+
+    var texto: String = "saubfaof duDOAHSF faohf" +
+                        "duihsadiba iufashfih" +
+                        "aifcabf audhgug aofiash"
 }
