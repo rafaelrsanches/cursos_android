@@ -1,10 +1,6 @@
 fun main() {
-    val nome: String = "Tony"
-    val sobrenome: String = "Stark"
+    var idade: Int = 10
+    idade++
 
-    println("Olá, $nome $sobrenome")
-
-    var texto: String = "saubfaof duDOAHSF faohf" +
-                        "duihsadiba iufashfih" +
-                        "aifcabf audhgug aofiash"
+    println(idade)
 }
