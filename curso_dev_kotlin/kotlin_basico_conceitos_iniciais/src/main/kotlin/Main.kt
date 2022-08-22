@@ -1,10 +1,12 @@
 fun main() {
-    var nome: String = "Nome Completo"
-    val texto: String
-    val tamanhoTenis: Byte = 40
-    var pibDoBrasil: Long = 1869000000000
-    var populacaoBrasil: Int = 211000000
+    helloWorld()
+    println("A soma de 10 e 5 é: ${sum(10, 5)}")
+}
 
-    println("PIB per capita do Brasil: ${pibDoBrasil/populacaoBrasil}")
+fun sum(a: Int, b: Int): Int{
+    return (a + b)
+}
 
+fun helloWorld(){
+    println("Hello, world!")
 }
