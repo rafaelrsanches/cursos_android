@@ -1,7 +1,7 @@
 import kotlin.math.*
 
 fun main() {
-    val bonus = calculaBonus("Gerente", 2)
+    val bonus = bonusWhen("Gerente")
     println(bonus)
 }
  fun calculaBonus(cargo: String, tempoDeExp: Int): Float{
@@ -28,3 +28,13 @@ fun main() {
 
      return 0f
  }
+
+fun bonusWhen(cargo: String): Float{
+    return when (cargo){
+        "Gerente" -> 2000f
+        "Coordenador" -> 1500f
+        "Engenheiro de software" -> 1000f
+        "Estagiário" -> 500f
+        else -> 0f
+    }
+}
