@@ -1,29 +1,30 @@
 import kotlin.math.*
 
 fun main() {
-    maiorDeIdade(19)
-    maiorDeIdade(15)
+    val bonus = calculaBonus("Gerente", 2)
+    println(bonus)
 }
-
-fun maiorDeIdade(idade: Int) {
-    if (idade >= 18){
-        println("Maior de idade")
-
-        if (idade > 60){
-            print("Terceira idade")
+ fun calculaBonus(cargo: String, tempoDeExp: Int): Float{
+    if (cargo == "Gerente"){
+        if (tempoDeExp >= 2){
+            return 3000f
+        } else {
+            return 2000f
         }
-
-    } else if (idade < 10) {
-        println("Criança")
-    } else {
-        print("Menor de idade")
     }
-}
+    else if (cargo == "Coordenador"){
+        if (tempoDeExp >= 1){
+            return 1800f
+        } else {
+            return 1500f
+        }
+     }
+    else if (cargo == "Engenheiro de software"){
+         return 1000f
+     }
+    else if (cargo == "Estagiário"){
+         return 500f
+     }
 
-fun saudacao(dia: Boolean): String {
-    return if (dia){
-        "Bom dia"
-    } else {
-        "Boa noite"
-    }
-}
+     return 0f
+ }
