@@ -1,9 +1,8 @@
 import kotlin.math.*
 
 fun main() {
-    var i: Int = 0
-    while (i <= 100){
-        println("while")
-        i++
-    }
+    do {
+        print("Digite seu nome: ")
+        val nome: String = readLine()!!
+    }while (nome == "")
 }
