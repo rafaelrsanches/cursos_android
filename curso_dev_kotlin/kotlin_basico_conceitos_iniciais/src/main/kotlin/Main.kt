@@ -1,18 +1,32 @@
 import kotlin.math.*
 
 fun main() {
+    ex5(4)
+}
 
-    val str: String = "Dev Android Kotlin"
+fun ex1() {
+    for (i in 1..50) print("$i ")
+}
 
-    var i: Int = 0
-    while (i < 100){
-        if (i < 50){
-            i++
-            continue
+fun ex2(){
+    for (i in 50 downTo 1) print("$i ")
+}
+
+fun ex3(){
+    for (i in 1..50)
+        if (i % 5 != 0){
+            print("$i ")
         }
+}
 
-        print("$i ")
-        i++
-
+fun ex4(){
+    var somaTotal: Int = 0
+    for (i in 1..500){
+        somaTotal += i;
     }
+    print(somaTotal)
+}
+
+fun ex5(n: Int){
+    for (n in 1..n) println("#".repeat(n))
 }
