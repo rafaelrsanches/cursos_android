@@ -3,5 +3,9 @@ import kotlin.math.*
 fun main() {
     val str: String? = null
 
-    println(str ?: "nulo")
+    // Expressão abaixo é a mesma coisa que if (str != null)
+    str?.let {
+        it.lowercase()
+        it.length
+    }
 }
