@@ -1,8 +1,18 @@
 import kotlin.math.*
 
 fun main() {
-    do {
-        print("Digite seu nome: ")
-        val nome: String = readLine()!!
-    }while (nome == "")
+
+    val str: String = "Dev Android Kotlin"
+
+    var i: Int = 0
+    while (i < 100){
+        if (i < 50){
+            i++
+            continue
+        }
+
+        print("$i ")
+        i++
+
+    }
 }
