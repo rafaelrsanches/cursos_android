@@ -2,40 +2,20 @@ import org.junit.jupiter.api.*
 import kotlin.test.fail
 
 class MainTest {
-
     @Test
-    @DisplayName("Teste método 'xxoo'")
-    fun testCountXO(){
+    @DisplayName("Testa os cenários da portaria")
+    fun testePortaria(){
+        Assertions.assertEquals(portaria(15, "", ""), "Negado.")
+        Assertions.assertEquals(portaria(20, "", ""), "Negado.")
 
-        Assertions.assertAll(
-            {Assertions.assertTrue(countXO("xxoo"))},
-            {Assertions.assertTrue(countXO("xXoo"))},
-            {Assertions.assertTrue(countXO("xxOo"))},
-            {Assertions.assertFalse(countXO("xxooo"))},
-        )
+        Assertions.assertEquals(portaria(20, "VIP", ""), "Negado.")
 
+        Assertions.assertEquals(portaria(20, "comum", "xt000"), "Welcome.")
+        Assertions.assertEquals(portaria(20, "comum", "000"), "Negado.")
+
+        Assertions.assertEquals(portaria(20, "premium", "xl000"), "Welcome.")
+        Assertions.assertEquals(portaria(20, "luxo", "xl000"), "Welcome.")
+        Assertions.assertEquals(portaria(20, "premium", ""), "Negado.")
+        Assertions.assertEquals(portaria(20, "luxo", ""), "Negado.")
     }
-
-    @Test
-    @Disabled
-    fun naoImplementado(){
-    }
-
-    @Test
-    fun vaiFalhar(){
-        fail("Não posso terminar os testes sem esse método.")
-    }
-
-    @Test
-    fun assumption(){
-        Assumptions.assumeTrue(countXO("xxo"))
-
-        Assertions.assertTrue(abc())
-    }
-
-    @Test
-    fun exception(){
-        assertThrows<NullPointerException> { abc() }
-    }
-
 }
