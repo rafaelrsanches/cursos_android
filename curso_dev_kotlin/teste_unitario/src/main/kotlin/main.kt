@@ -1,7 +1,5 @@
 fun main(){
-    println(countXO("xxoo"))
-    println(countXO("xxooo"))
-    println(countXO("aa"))
+    abc()
 }
 fun countXO(str: String): Boolean {
     val strLower: String = str.lowercase()
@@ -18,4 +16,8 @@ fun countXO(str: String): Boolean {
         i++
     }
     return ((somaX == somaO) && (somaX != 0))
+}
+
+fun abc(): Boolean {
+    throw NullPointerException()
 }

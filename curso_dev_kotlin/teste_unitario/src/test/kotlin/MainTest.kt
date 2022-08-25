@@ -1,7 +1,4 @@
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Disabled
-import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.*
 import kotlin.test.fail
 
 class MainTest {
@@ -27,6 +24,18 @@ class MainTest {
     @Test
     fun vaiFalhar(){
         fail("Não posso terminar os testes sem esse método.")
+    }
+
+    @Test
+    fun assumption(){
+        Assumptions.assumeTrue(countXO("xxo"))
+
+        Assertions.assertTrue(abc())
+    }
+
+    @Test
+    fun exception(){
+        assertThrows<NullPointerException> { abc() }
     }
 
 }
