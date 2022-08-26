@@ -1,23 +1,32 @@
 fun main(){
-    Animal("Cachorro").falar()
+    var a = Animal("Cachorro")
+    a.fala = "auuu"
 }
 
 class Animal(var especie: String){
 
+    // O Field vai valer pra qual variável ele estiver declarado logo abaixo.
+
     var fala: String = ""
 
-    init {
-        if (especie.lowercase() == "cachorro"){
-            fala = "au"
-        } else if (especie.lowercase() == "gato"){
-            fala = "miau"
-        } else {
-            fala = ""
+        get() {
+            println("Acesso get")
+            return field
         }
-    }
+        set(value) {
+            println("Acesso set")
+            field = value
+        }
 
-    fun falar(){
-        println(fala)
-    }
+    var idade: Int = 0
+
+        get() {
+            println("Acesso get")
+            return field
+        }
+        set(value) {
+            println("Acesso set")
+            field = value
+        }
 
 }
