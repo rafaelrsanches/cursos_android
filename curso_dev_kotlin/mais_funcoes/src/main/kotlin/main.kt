@@ -1,7 +1,11 @@
 fun main() {
-    endereco(cidade = "City", rua = "Street", estado = "SP")
+    println(media(1f, 2f, 3f, 6.5f, 8f))
 }
 
-fun endereco (rua: String, cidade: String, estado: String, cep: String = "", numero: Int = 0){
-
+fun media(vararg notas: Float): Float {
+    var soma = 0f
+    for (n in notas){
+        soma += n
+    }
+    return (soma / notas.size)
 }
