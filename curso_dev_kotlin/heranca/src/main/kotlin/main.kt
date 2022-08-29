@@ -3,23 +3,29 @@ fun main() {
 
     c.ligar()
     c.desligar()
-    c.marca
 }
 
 open class Eletronico(var marca: String){
-
-    private val s: String = ""
-
-    private fun ativarCorrenteEletrica() {}
+    private fun ativarCorrenteEletrica(ativo: Boolean) {}
     fun ligar() {
-        ativarCorrenteEletrica()
+        ativarCorrenteEletrica(true)
     }
-    fun desligar() {}
+    open fun desligar() {
+        ativarCorrenteEletrica(false)
+    }
 }
 
 class Computador(marca: String) : Eletronico(marca){
-    fun instalarSoftware() {}
-    fun processarDados() {}
+
+    fun save() {}
+    fun save(a: Int) {}
+
+    override fun desligar() {
+        save()
+        super.desligar()
+    }
+
+
 }
 
 private class X // private class só permite acesso no mesmo arquivo e também impede que seja herdada.
