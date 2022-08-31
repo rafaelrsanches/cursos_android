@@ -1,18 +1,18 @@
 fun main() {
 
-    // List
+    // Set, não é necessariamente uma sequência ordenada, e não permite valores duplicados.
 
-    val lst1: List<Int> = listOf(1, 2, 3, 4, 5) // Não da pra modificar
-    val lst2: MutableList<Int> = mutableListOf(6, 7, 8, 9, 10) // Da pra modificar, mesmo usando val.
+    val set1: Set<String> = setOf("Paris", "Berlim", "Madrid", "Madrid") // Não da pra modificar
+    val set2: MutableSet<String> = mutableSetOf() // Da pra modificar, mesmo usando val.
 
-    println(lst2[0])
-    println(lst2.size)
+    println(set1) // Não imprime 2 vezes Madrid, pois não armazena valores duplicados.
 
-    lst2.add(12)
-    lst2.add(10)
-    println(lst2)
-    lst2.remove(10)
-    lst2.removeAt(0)
+    set2.add("São Paulo")
+    set2.remove("São Paulo")
+    set2.contains("São Paulo")
+    set2.size
+    set2.clear()
 
-    println(lst2)
+    // set2[] = Set não tem index
+
 }
