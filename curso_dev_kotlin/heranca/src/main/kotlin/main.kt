@@ -10,8 +10,16 @@ abstract class Mamifero (val nome: String){ // Para ter uma função/método abs
     abstract fun falar() // Uma função/método abstract sempre terá override e implementação nas classes herdeiras.
 }
 
-class Cachorro(nome: String) : Mamifero(nome) { // Uma classe que herda uma classe abstract obrigatóriamente precisa implementar as funções/métodos abstracts.
+interface Selvagem { // Interface
+    fun atacar()
+}
+
+class Cachorro(nome: String) : Mamifero(nome), Selvagem { // Uma classe que herda uma classe abstract obrigatóriamente precisa implementar as funções/métodos abstracts.
     override fun falar() {
         println("au au")
+    }
+
+    override fun atacar() {
+        TODO("Not yet implemented")
     }
 }
