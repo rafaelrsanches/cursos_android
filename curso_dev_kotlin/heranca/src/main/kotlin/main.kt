@@ -1,34 +1,17 @@
-fun main() {
-    var c: Computador = Computador("Dell")
-
-    c.ligar()
-    c.desligar()
-}
-
-open class Eletronico(var marca: String){
-    private fun ativarCorrenteEletrica(ativo: Boolean) {}
-    fun ligar() {
-        ativarCorrenteEletrica(true)
-    }
-    open fun desligar() {
-        ativarCorrenteEletrica(false)
-    }
-}
-
-class Computador(marca: String) : Eletronico(marca){
-
-    fun save() {}
-    fun save(a: Int) {}
-
-    override fun desligar() {
-        save()
-        super.desligar()
-    }
-
+fun main() { // Não da para criar objetos de uma classe abstract.
 
 }
 
-private class X // private class só permite acesso no mesmo arquivo e também impede que seja herdada.
+abstract class Mamifero (val nome: String){ // Para ter uma função/método abstract é necessário ter abstract na classe.
+    fun acordar() {}
 
-// private fun dentro de uma classe, só a própria classe enxerga.
-// protected fun dentro de uma classe, a própria classe e as classes herdeiras enxergam.
+    fun dormir() {}
+
+    abstract fun falar() // Uma função/método abstract sempre terá override e implementação nas classes herdeiras.
+}
+
+class Cachorro(nome: String) : Mamifero(nome) { // Uma classe que herda uma classe abstract obrigatóriamente precisa implementar as funções/métodos abstracts.
+    override fun falar() {
+        println("au au")
+    }
+}
