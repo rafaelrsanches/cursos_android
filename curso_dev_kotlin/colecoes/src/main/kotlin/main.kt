@@ -1,18 +1,18 @@
 fun main() {
 
-    // Set, não é necessariamente uma sequência ordenada, e não permite valores duplicados.
+    // Map, é uma coleção Pair("chave", "valor"), sendo a chave única.
 
-    val set1: Set<String> = setOf("Paris", "Berlim", "Madrid", "Madrid") // Não da pra modificar
-    val set2: MutableSet<String> = mutableSetOf() // Da pra modificar, mesmo usando val.
+    val map1: Map<String, String> = mapOf(Pair("França", "Paris"), Pair("Alemanha", "Berlim"), Pair("Alemanha", "xpto"))
+    val map2: MutableMap<String, String> = mutableMapOf(Pair("França", "Paris"), Pair("Alemanha", "Berlim"))
 
-    println(set1) // Não imprime 2 vezes Madrid, pois não armazena valores duplicados.
+    println(map1)
+    println(map1.entries)
+    println(map1.values)
 
-    set2.add("São Paulo")
-    set2.remove("São Paulo")
-    set2.contains("São Paulo")
-    set2.size
-    set2.clear()
+    map2["Brasil"] = "Brasília"
+    println(map2)
 
-    // set2[] = Set não tem index
-
+    map2.remove("França")
+    map2.contains("Brasil")
+    map2.clear()
 }
