@@ -1,18 +1,42 @@
 fun main() {
+    val data = geraDados()
 
-    // Map, é uma coleção Pair("chave", "valor"), sendo a chave única.
+    println(data.any())
+    println(listOf<Int>().any())
 
-    val map1: Map<String, String> = mapOf(Pair("França", "Paris"), Pair("Alemanha", "Berlim"), Pair("Alemanha", "xpto"))
-    val map2: MutableMap<String, String> = mutableMapOf(Pair("França", "Paris"), Pair("Alemanha", "Berlim"))
-
-    println(map1)
-    println(map1.entries)
-    println(map1.values)
-
-    map2["Brasil"] = "Brasília"
-    println(map2)
-
-    map2.remove("França")
-    map2.contains("Brasil")
-    map2.clear()
+    println(data.count())
 }
+
+fun geraDados(): List<Receita>{
+    return listOf(
+        Receita(
+            "Lasanha", 1200,
+            listOf(
+                Ingrediente("Presunto", 5),
+                Ingrediente("Queijo", 10),
+                Ingrediente("Molho de tomate", 2),
+                Ingrediente("Manjerição", 3)
+            )
+        ),
+        Receita("Panqueca", 500),
+        Receita("Omelete", 200),
+        Receita("Parmegiana", 700),
+        Receita("Sopa de feijão", 300),
+        Receita(
+            "Hamburguer", 2000,
+            listOf(
+                Ingrediente("Pão", 1),
+                Ingrediente("Hamburguer", 3),
+                Ingrediente("Queijo", 1),
+                Ingrediente("Catupiry", 1),
+                Ingrediente("Bacon", 3),
+                Ingrediente("Alface", 1),
+                Ingrediente("Tomate", 1)
+            )
+        )
+    )
+}
+
+data class Receita(val nome: String, val calorias: Int, val ingredientes: List<Ingrediente> = listOf())
+
+data class Ingrediente(val nome: String, val quantidade: Int)
