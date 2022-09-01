@@ -8,6 +8,10 @@ fun main() {
 
     println("Primeira receita: ${data.first().nome}")
     println("Última receita: ${data.last().nome}")
+
+    println(data.sumOf { it.calorias })
+
+    println(data.filter { it.calorias > 600 })
 }
 
 fun geraDados(): List<Receita>{
