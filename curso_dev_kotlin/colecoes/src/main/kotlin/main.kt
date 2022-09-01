@@ -12,6 +12,9 @@ fun main() {
     println(data.sumOf { it.calorias })
 
     println(data.filter { it.calorias > 600 })
+
+    println(data.take(2))
+    println(data.takeLast(2))
 }
 
 fun geraDados(): List<Receita>{
