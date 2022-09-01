@@ -1,16 +1,34 @@
+package control
+
+import business.ConviteBusiness
+
 class Portaria {
 
-    fun controle(){
+    private val conviteBusiness = ConviteBusiness()
+
+    init {
+        controle()
+        println(controle())
+    }
+
+    private fun controle(): String{
         val idade: Int = Console.readInt("Qual sua idade? ")
 
         if (idade < 18){
-            println("Negado. Menores de idade não são permitidos.")
-            return
+            return "Negado. Menores de idade não são permitidos."
         }
 
         val tipoConvite = Console.readString("Qual é o tipo de convite? ")
-        println(tipoConvite)
+        if (!conviteBusiness.tipoValido(tipoConvite)){
+            return "Negado. Convite inválido."
+        }
 
+        val codigoConvite = Console.readString("Qual é o codigo do convite? ")
+        if (!conviteBusiness.codigoValido(codigoConvite, tipoConvite)){
+            return "Negado. Código inválido."
+        }
+
+        return "TO DO!"
     }
 }
 
@@ -31,7 +49,7 @@ fun portaria() {
         tipoConvite = tipoConvite.lowercase()
         // Validação do tipo de convite
         if (tipoConvite != "comum" && tipoConvite != "premium" && tipoConvite != "luxo") {
-            println("Negado. Convite inválido.")
+            println("Negado. entity.Convite inválido.")
             return
         }
         print("Qual o código do convite? ")
@@ -44,7 +62,7 @@ fun portaria() {
             ) {
                 println("Welcome :)")
             } else {
-                println("Negado. Convite inválido")
+                println("Negado. entity.Convite inválido")
             }
         }
     }
