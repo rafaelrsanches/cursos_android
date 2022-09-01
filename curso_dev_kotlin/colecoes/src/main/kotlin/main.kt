@@ -5,6 +5,9 @@ fun main() {
     println(listOf<Int>().any())
 
     println(data.count())
+
+    println("Primeira receita: ${data.first().nome}")
+    println("Última receita: ${data.last().nome}")
 }
 
 fun geraDados(): List<Receita>{
