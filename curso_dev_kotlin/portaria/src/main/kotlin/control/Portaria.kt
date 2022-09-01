@@ -1,69 +1,33 @@
 package control
 
-import business.ConviteBusiness
+import business.ConvidadoBusiness
+import entity.Convite
 
 class Portaria {
 
-    private val conviteBusiness = ConviteBusiness()
+    private val convidadoBusiness = ConvidadoBusiness()
 
     init {
-        controle()
         println(controle())
     }
 
     private fun controle(): String{
         val idade: Int = Console.readInt("Qual sua idade? ")
+        val convidado = Convite(idade = idade)
 
-        if (idade < 18){
+        if (!convidadoBusiness.maiorDeIdade(convidado.idade)){
             return "Negado. Menores de idade não são permitidos."
         }
 
-        val tipoConvite = Console.readString("Qual é o tipo de convite? ")
-        if (!conviteBusiness.tipoValido(tipoConvite)){
+        convidado.tipo = Console.readString("Qual é o tipo de convite? ")
+        if (!convidadoBusiness.tipoValido(convidado.tipo)){
             return "Negado. Convite inválido."
         }
 
-        val codigoConvite = Console.readString("Qual é o codigo do convite? ")
-        if (!conviteBusiness.codigoValido(codigoConvite, tipoConvite)){
+        convidado.codigo = Console.readString("Qual é o codigo do convite? ")
+        if (!convidadoBusiness.codigoValido(convidado)){
             return "Negado. Código inválido."
         }
-
-        return "TO DO!"
-    }
-}
-
-
-
-fun portaria() {
-    print("Qual sua idade? ")
-    val idade = readLine()
-    if (idade != null && idade != "") {
-        if (idade.toInt() < 18) {
-            println("Negado. Menores de idade não são permitidos.")
-            return
-        }
-    }
-    print("Qual é o tipo de convite? ")
-    var tipoConvite = readLine()
-    if (tipoConvite != null && tipoConvite != "") {
-        tipoConvite = tipoConvite.lowercase()
-        // Validação do tipo de convite
-        if (tipoConvite != "comum" && tipoConvite != "premium" && tipoConvite != "luxo") {
-            println("Negado. entity.Convite inválido.")
-            return
-        }
-        print("Qual o código do convite? ")
-        var codigo = readLine()
-        if (codigo != null && codigo != "") {
-            codigo = codigo.lowercase()
-            if (tipoConvite == "comum" && codigo.startsWith("xt")) {
-                println("Welcome :)")
-            } else if ((tipoConvite == "premium" || tipoConvite == "luxo") && codigo.startsWith("xl")
-            ) {
-                println("Welcome :)")
-            } else {
-                println("Negado. entity.Convite inválido")
-            }
-        }
+        return "Welcome! :)"
     }
 }
