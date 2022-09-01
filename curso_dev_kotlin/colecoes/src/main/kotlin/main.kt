@@ -1,24 +1,7 @@
 fun main() {
     val data = geraDados()
 
-    println(data.any())
-    println(listOf<Int>().any())
-
-    println(data.count())
-
-    println("Primeira receita: ${data.first().nome}")
-    println("Última receita: ${data.last().nome}")
-
-    println(data.sumOf { it.calorias })
-
-    println(data.filter { it.calorias > 600 })
-
-    println(data.take(2))
-    println(data.takeLast(2))
-
-    data.forEach{ println(it.nome) }
-    data.filter { it.calorias > 600 }.forEach{ println(it.nome) }
-
+    println(data.map { it.nome })
 }
 
 fun geraDados(): List<Receita>{
