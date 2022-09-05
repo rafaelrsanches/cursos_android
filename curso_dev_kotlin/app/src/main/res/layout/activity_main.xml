@@ -4,22 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
     tools:context=".MainActivity">
 
     <TextView
         android:text="Dev Android Kotlin"
         android:textSize="24sp"
-        android:layout_weight="1"
-        android:layout_width="0dp"
+        android:layout_gravity="center"
+        android:padding="8dp"
+        android:textColor="@color/grey"
+        android:background="#83F8E6"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
     />
 
     <TextView
         android:text="Dev Android Kotlin"
         android:textSize="24sp"
-        android:layout_weight="1"
-        android:layout_width="0dp"
+        android:layout_gravity="center"
+        android:padding="8dp"
+        android:textColor="@color/grey"
+        android:background="#83F8E6"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
 
