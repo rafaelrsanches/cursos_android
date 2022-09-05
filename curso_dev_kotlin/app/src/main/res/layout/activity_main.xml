@@ -8,46 +8,10 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <EditText
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="text"
-        android:inputType="text"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="textMultiLine"
-        android:inputType="textMultiLine"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="textPassword"
-        android:inputType="textPassword"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="numberPassword"
-        android:inputType="numberPassword"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="number"
-        android:inputType="number"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="phone"
-        android:inputType="phone"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="date"
-        android:inputType="date"/>
+        android:text="@string/dev_android_kotlin"
+        android:textColor="@color/grey"/>
 
 </LinearLayout>
