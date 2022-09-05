@@ -5,29 +5,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="16dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:text="Dev Android Kotlin"
-        android:textSize="24sp"
-        android:layout_gravity="center"
-        android:padding="8dp"
-        android:textColor="@color/grey"
-        android:background="#83F8E6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    />
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#83F8E6"
+                android:padding="8dp"
+                android:text="Dev Android Kotlin"
+                android:textColor="@color/grey"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#83F8E6"
+                android:padding="8dp"
+                android:text="Dev Android Kotlin"
+                android:textColor="@color/grey"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#83F8E6"
+                android:padding="8dp"
+                android:text="Dev Android Kotlin"
+                android:textColor="@color/grey"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#83F8E6"
+                android:padding="8dp"
+                android:text="Dev Android Kotlin"
+                android:textColor="@color/grey"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
     <TextView
-        android:text="Dev Android Kotlin"
-        android:textSize="24sp"
-        android:layout_gravity="center"
-        android:padding="8dp"
-        android:textColor="@color/grey"
-        android:background="#83F8E6"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:background="#83F8E6"
+        android:padding="8dp"
+        android:text="Dev Android Kotlin"
+        android:textColor="@color/grey"
+        android:textSize="24sp" />
 
 </LinearLayout>
