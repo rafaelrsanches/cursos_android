@@ -7,61 +7,26 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <HorizontalScrollView
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#83F8E6"
-                android:padding="8dp"
-                android:text="Dev Android Kotlin"
-                android:textColor="@color/grey"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#83F8E6"
-                android:padding="8dp"
-                android:text="Dev Android Kotlin"
-                android:textColor="@color/grey"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#83F8E6"
-                android:padding="8dp"
-                android:text="Dev Android Kotlin"
-                android:textColor="@color/grey"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#83F8E6"
-                android:padding="8dp"
-                android:text="Dev Android Kotlin"
-                android:textColor="@color/grey"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-    </HorizontalScrollView>
+        android:layout_height="wrap_content"
+        android:background="#83F8E6"
+        android:fontFamily="@font/anton"
+        android:padding="8dp"
+        android:text="@string/dev_android_kotlin"
+        android:textAllCaps="true"
+        android:textColor="@color/grey"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#83F8E6"
         android:padding="8dp"
-        android:text="Dev Android Kotlin"
+        android:text="@string/dev_android_kotlin"
+        android:textStyle="bold"
+        android:textAllCaps="false"
         android:textColor="@color/grey"
         android:textSize="24sp" />
 
