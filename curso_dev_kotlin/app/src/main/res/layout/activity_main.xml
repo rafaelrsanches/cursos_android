@@ -5,29 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#83F8E6"
-        android:fontFamily="@font/anton"
-        android:padding="8dp"
-        android:text="@string/dev_android_kotlin"
-        android:textAllCaps="true"
-        android:textColor="@color/grey"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:hint="text"
+        android:inputType="text"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#83F8E6"
-        android:padding="8dp"
-        android:text="@string/dev_android_kotlin"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:textColor="@color/grey"
-        android:textSize="24sp" />
+        android:hint="textMultiLine"
+        android:inputType="textMultiLine"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="textPassword"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="numberPassword"
+        android:inputType="numberPassword"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="number"
+        android:inputType="number"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="phone"
+        android:inputType="phone"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="date"
+        android:inputType="date"/>
 
 </LinearLayout>
