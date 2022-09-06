@@ -26,6 +26,7 @@
         android:id="@+id/edit_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:layout_marginTop="16dp"
         android:hint="@string/price" />
 
@@ -40,6 +41,7 @@
         android:id="@+id/edit_autonomy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:layout_marginTop="16dp"
         android:hint="@string/autonomy" />
 
