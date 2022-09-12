@@ -4,36 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_a"
-        android:width="50dp"
-        android:textSize="50sp"
-        android:gravity="center"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/edit_distance"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="A" />
+        android:hint="Distância"
+         />
 
     <TextView
-        android:id="@+id/text_b"
-        android:width="50dp"
-        android:textSize="50sp"
-        android:gravity="center"
-        android:layout_toEndOf="@id/text_a"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/text_distance"
+        android:layout_below="@id/edit_distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="B" />
+        android:text="Total de quilômetros" />
+
+    <EditText
+        android:id="@+id/edit_price"
+        android:layout_below="@id/text_distance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Preço"
+        />
 
     <TextView
-        android:id="@+id/text_c"
-        android:width="50dp"
-        android:textSize="50sp"
-        android:gravity="center"
-        android:layout_alignEnd="@id/text_b"
-        android:layout_below="@id/text_b"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/text_price"
+        android:layout_below="@id/edit_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="C" />
+        android:text="Total de quilômetros" />
+
+    <EditText
+        android:id="@+id/edit_autonomy"
+        android:layout_below="@id/text_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Autonomia"
+        />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/text_autonomy"
+        android:layout_below="@id/edit_autonomy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total de quilômetros" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/text_total_spend"
+        android:layout_below="@id/text_autonomy"
+        android:layout_marginTop="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:text="Seu gasto totals será de:" />
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/text_total_value"
+        android:layout_below="@id/text_total_spend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:text="R$ 0" />
+
+    <Button
+        android:id="@+id/button_calculate"
+        android:layout_marginTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_total_value"
+        android:text="Calcular" />
+
 
 </RelativeLayout>
