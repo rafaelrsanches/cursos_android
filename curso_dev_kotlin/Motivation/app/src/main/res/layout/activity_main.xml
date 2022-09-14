@@ -39,15 +39,16 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/text_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linear_menu"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
-        android:textSize="16sp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/cabin"
-        android:text="Olá, Kotlin!" />
+        android:text="Olá, Kotlin!"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/text_phrase"
