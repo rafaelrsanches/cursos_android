@@ -1,4 +1,4 @@
-package com.example.motivation
+package com.example.motivation.infra
 
 import android.content.Context
 import android.content.SharedPreferences
