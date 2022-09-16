@@ -6,6 +6,8 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.example.motivation.infra.MotivationConstants
 import com.example.motivation.R
+import com.example.motivation.data.Mock
+import com.example.motivation.data.Phrase
 import com.example.motivation.infra.SecurityPreferences
 import com.example.motivation.databinding.ActivityMainBinding
 
@@ -25,6 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         handleUserName()
         handleFilter(R.id.image_all)
+        handleNextPhrase()
 
         // Eventos
         binding.buttonNewPhrase.setOnClickListener(this)
@@ -37,10 +40,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         if (view.id == R.id.button_new_phrase){
-            var s = ""
+            handleNextPhrase()
         } else if (view.id in listOf(R.id.image_all, R.id.image_happy, R.id.image_sunny)){
             handleFilter(view.id)
         }
+    }
+
+    private fun handleNextPhrase(){
+        binding.textPhrase.text = Mock().getPhrase(categoryId)
     }
 
     private fun handleFilter(id: Int){

@@ -58,11 +58,11 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:fontFamily="@font/cabin"
-        android:textSize="22sp"
-        android:textColor="@color/black"
         android:gravity="center"
         android:padding="16dp"
-        android:text="@string/phrase" />
+        android:text="@string/phrase"
+        android:textColor="@color/black"
+        android:textSize="22sp" />
 
     <View
         android:layout_width="128dp"
