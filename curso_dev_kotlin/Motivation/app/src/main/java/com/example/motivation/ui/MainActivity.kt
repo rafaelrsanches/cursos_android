@@ -7,7 +7,6 @@ import androidx.core.content.ContextCompat
 import com.example.motivation.infra.MotivationConstants
 import com.example.motivation.R
 import com.example.motivation.data.Mock
-import com.example.motivation.data.Phrase
 import com.example.motivation.infra.SecurityPreferences
 import com.example.motivation.databinding.ActivityMainBinding
 
@@ -74,6 +73,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun handleUserName(){
         val name = SecurityPreferences(this).getString(MotivationConstants.KEY.USER_NAME)
-        binding.textUserName.text = "Olá, $name!"
+        binding.textUserName.text = "${R.string.hello}, $name!"
     }
 }
