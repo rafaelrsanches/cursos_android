@@ -13,6 +13,7 @@ import com.example.convidados.viewmodel.AllGuestsViewModel
 class AllGuestsFragment : Fragment() {
 
     private var _binding: FragmentAllGuestsBinding? = null
+    private lateinit var viewModel: AllGuestsViewModel
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -23,16 +24,15 @@ class AllGuestsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel =
-            ViewModelProvider(this).get(AllGuestsViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(AllGuestsViewModel::class.java)
 
         _binding = FragmentAllGuestsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        viewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        viewModel.getAll()
+
+        observe()
+
         return root
     }
 
@@ -40,4 +40,13 @@ class AllGuestsFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    private fun observe(){
+        viewModel.guests.observe(viewLifecycleOwner){
+
+            // Lista de convidados
+
+        }
+    }
+
 }
