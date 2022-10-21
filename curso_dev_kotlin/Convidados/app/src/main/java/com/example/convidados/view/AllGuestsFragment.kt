@@ -17,6 +17,7 @@ class AllGuestsFragment : Fragment() {
 
     private var _binding: FragmentAllGuestsBinding? = null
     private lateinit var viewModel: AllGuestsViewModel
+    private val adapter = GuestsAdapter()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -36,7 +37,7 @@ class AllGuestsFragment : Fragment() {
 
         // Recycler View
         // Adapter
-        binding.recyclerAllGuests.adapter = GuestsAdapter()
+        binding.recyclerAllGuests.adapter = adapter
 
         viewModel.getAll()
 
@@ -53,7 +54,7 @@ class AllGuestsFragment : Fragment() {
     private fun observe(){
         viewModel.guests.observe(viewLifecycleOwner){
 
-            // Lista de convidados
+            adapter.updateGuests(it)
 
         }
     }
