@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.convidados.databinding.FragmentAllGuestsBinding
+import com.example.convidados.view.adapter.GuestsAdapter
 import com.example.convidados.viewmodel.AllGuestsViewModel
 
 class AllGuestsFragment : Fragment() {
@@ -25,15 +28,21 @@ class AllGuestsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         viewModel = ViewModelProvider(this).get(AllGuestsViewModel::class.java)
-
         _binding = FragmentAllGuestsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+
+        // Recycler View
+        // Layout
+        binding.recyclerAllGuests.layoutManager = LinearLayoutManager(context)
+
+        // Recycler View
+        // Adapter
+        binding.recyclerAllGuests.adapter = GuestsAdapter()
 
         viewModel.getAll()
 
         observe()
 
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
