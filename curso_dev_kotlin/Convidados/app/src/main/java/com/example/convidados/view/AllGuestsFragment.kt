@@ -47,7 +47,8 @@ class AllGuestsFragment : Fragment() {
             }
 
             override fun onDelete(id: Int) {
-
+                viewModel.delete(id)
+                viewModel.getAll()
             }
 
         }
