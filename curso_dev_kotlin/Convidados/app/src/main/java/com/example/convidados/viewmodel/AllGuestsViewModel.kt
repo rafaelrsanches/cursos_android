@@ -13,7 +13,6 @@ class AllGuestsViewModel(application: Application) : AndroidViewModel(applicatio
     private val repository: GuestRepository = GuestRepository.getInstance(application.applicationContext)
 
     private val listAllGuests = MutableLiveData<List<GuestModel>>()
-
     val guests: LiveData<List<GuestModel>> = listAllGuests
 
     fun getAll(){

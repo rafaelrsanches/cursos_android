@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.convidados.R
+import com.example.convidados.constants.DataBaseConstants
 import com.example.convidados.databinding.ActivityGuestFormBinding
 import com.example.convidados.model.GuestModel
 import com.example.convidados.viewmodel.GuestFormViewModel
@@ -27,6 +28,9 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
         // Eventos
         binding.buttonSave.setOnClickListener(this)
+
+        loadData()
+
     }
 
     override fun onClick(view: View) {
@@ -38,4 +42,13 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
             viewModel.insert(model)
         }
     }
+
+    private fun loadData() {
+        val bundle = intent.extras
+        if (bundle != null){
+            val guestid = bundle.getInt(DataBaseConstants.GUEST.ID)
+            viewModel.get(guestid)
+        }
+    }
+
 }
