@@ -5,22 +5,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.convidados.constants.DataBaseConstants
 import com.example.convidados.databinding.FragmentAllGuestsBinding
 import com.example.convidados.view.adapter.GuestsAdapter
 import com.example.convidados.view.listener.OnGuestListener
-import com.example.convidados.viewmodel.AllGuestsViewModel
+import com.example.convidados.viewmodel.GuestsViewModel
 
 class AllGuestsFragment : Fragment() {
 
     private var _binding: FragmentAllGuestsBinding? = null
-    private lateinit var viewModel: AllGuestsViewModel
+    private lateinit var viewModel: GuestsViewModel
     private val adapter = GuestsAdapter()
 
     // This property is only valid between onCreateView and
@@ -32,16 +29,16 @@ class AllGuestsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel = ViewModelProvider(this).get(AllGuestsViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(GuestsViewModel::class.java)
         _binding = FragmentAllGuestsBinding.inflate(inflater, container, false)
 
         // Recycler View
         // Layout
-        binding.recyclerAllGuests.layoutManager = LinearLayoutManager(context)
+        binding.recyclerGuests.layoutManager = LinearLayoutManager(context)
 
         // Recycler View
         // Adapter
-        binding.recyclerAllGuests.adapter = adapter
+        binding.recyclerGuests.adapter = adapter
 
         val listener = object : OnGuestListener{
             override fun onClick(id: Int) {

@@ -8,7 +8,7 @@
     android:padding="8dp">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_all_guests"
+        android:id="@+id/recycler_guests"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
